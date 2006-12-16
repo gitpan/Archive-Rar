@@ -1,15 +1,15 @@
---- #YAML:1.0
-name:                Archive-Rar
-version:             1.91
-abstract:            Manipulates RAR archives
-license:             perl
-generated_by:        ExtUtils::MakeMaker version 6.31
-distribution_type:   module
-requires:     
-    Data::Dumper:                  0
-    Test::Simple:                  0
-meta-spec:
-    url:     http://module-build.sourceforge.net/META-spec-v1.2.html
-    version: 1.2
-author:
-    - jean-marc boulade <jmbperl@hotmail.com>
+abstract: Interface with the 'rar' command
+author: jean-marc boulade <jmbperl@hotmail.com>
+build_requires: 
+  Test::Simple: 0
+distribution_type: module
+generated_by: Module::Install version 0.64
+license: perl
+name: Archive-Rar
+no_index: 
+  directory: 
+    - inc
+    - t
+requires: 
+  Data::Dumper: 0
+version: 1.92
