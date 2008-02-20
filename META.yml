@@ -17,4 +17,4 @@ no_index:
     - t
 requires: 
   Data::Dumper: 0
-version: 1.94
+version: 1.95
