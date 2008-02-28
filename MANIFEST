@@ -16,4 +16,8 @@ META.yml
 README
 t/00pod.t
 t/10basic.t
+t/20list.t
+t/30extract.t
+t/40add.t
+t/data/test.rar
 TODO
