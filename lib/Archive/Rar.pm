@@ -3,17 +3,13 @@ package Archive::Rar;
 require 5.004;
 
 use strict;
-require Exporter;
-use vars ( '@ISA', '@EXPORT', '$VERSION' );
-
-@ISA    = qw(Exporter);
-@EXPORT = qw( );
+use vars ('$VERSION');
+$VERSION = '2.00_02';
 
 use Data::Dumper;
 use Cwd;
 use File::Path;
 
-$VERSION = '1.96_01';
 
 my $IsWindows = ($^O =~ /win32/i ? 1 : 0);
 
@@ -550,7 +546,7 @@ Linux
 =head1 SYNOPSIS
 
  use Archive::Rar;
- my $rar =new Archive::Rar();
+ my $rar = Archive::Rar->new();
  $rar->Add(
 	-size => $size_of_parts,
 	-archive => $archive_filename,
@@ -560,7 +556,7 @@ Linux
 To extract files from archive:
 
  use Archive::Rar;
- my $rar = new Archive::Rar( -archive => $archive );
+ my $rar = Archive::Rar->new( -archive => $archive );
  $rar->List( );
  my $res = $rar->Extract( );
  print "Error $res in extracting from $archive\n" if ( $res );
@@ -568,14 +564,14 @@ To extract files from archive:
 To list archived files:
 
  use Archive::Rar;
- my $rar = new Archive::Rar( -archive => $archive );
+ my $rar = Archive::Rar->new( -archive => $archive );
  $rar->List( );
  $rar->PrintList( );
 
 Using further options:
 
  use Archive::Rar;
- my $rar = new Archive::Rar( -archive => $archive );
+ my $rar = Archive::Rar->new( -archive => $archive );
  my $res = $rar->Extract(-donotoverwrite => 1, -quiet => 1 );
  print "Error $res in extracting from $archive\n" if ( $res );
 
@@ -585,6 +581,10 @@ This is a module for the handling of rar archives.
 
 Locates the rar command (from PATH or from regedit for Win32) and encapsulate it to
 create, extract and list rar archives.
+
+I<Note:> There are a few things that have gone awry. Have a look at the L<Archive::Rar::Passthrough>
+module that is part of this distribution. It is a lower-level interface to the C<rar> command,
+but it does some things in a safer way than this module (namely shell escaping or lack thereof).
 
 At the moment these methods are implemented:
 
