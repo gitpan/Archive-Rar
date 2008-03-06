@@ -18,11 +18,7 @@ ok(-f $datafile, "Test archive found");
 my $rar = Archive::Rar->new(-archive => $datafile);
 isa_ok($rar, 'Archive::Rar');
 
-# probably broken by Francesco's recent changes?
-# Needto investigate later.
-#is($rar->List(), 0, "List() command succeeds");
-$rar->List();
-pass("temporary");
+is($rar->List(), 0, "List() command succeeds");
 
 # intrusive...
 my $list = $rar->{list};
